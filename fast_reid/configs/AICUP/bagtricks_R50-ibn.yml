@@ -1,0 +1,40 @@
+_BASE_: ../Base-bagtricks.yml
+
+INPUT:
+  SIZE_TRAIN: [256, 256]
+  SIZE_TEST: [256, 256]
+
+MODEL:
+  BACKBONE:
+    DEPTH: 101x
+    WITH_IBN: true
+    WITH_SE: true
+  HEADS:
+    POOL_LAYER: GlobalAvgPool
+    CLS_LAYER: Linear
+  LOSSES:
+    NAME: ("CrossEntropyLoss", "TripletLoss",)
+    TRI:
+      HARD_MINING: true
+
+DATASETS:
+  NAMES: ("AICUP",)
+  TESTS: ("AICUP",)
+
+SOLVER:
+  OPT: NAdam
+  IMS_PER_BATCH: 64
+  MAX_EPOCH: 150
+  STEPS: [40, 80]
+  WARMUP_ITERS: 2000
+  CHECKPOINT_PERIOD: 1
+  BASE_LR: 2e-4
+  SCHED: "CosineAnnealingLR"
+  AMP:
+    ENABLED: true
+    
+TEST:
+  EVAL_PERIOD: 7
+  IMS_PER_BATCH: 128
+
+OUTPUT_DIR: logs/AICUP_115/bagtricks_R50-ibn
