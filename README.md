@@ -155,7 +155,7 @@ python3 convert_format.py -s VeRI_Wild資料集解壓縮完的路徑
 該指令會把VeRI_Wild資料集的圖片都改成特定格式的名稱並輸出到`fast_reid/datasets/AICUP-ReID/all_datasets`
 
 
-最後將AICUP和VeRI_Wild的圖片依照list的內容複製到bounding_box_train和bounding_box_test資料夾。
+最後執行`fast_reid\datasets\set_train_data.py`，將AICUP和VeRI_Wild的圖片依照list的內容複製到bounding_box_train和bounding_box_test資料夾。
 ```python
 # fast_reid\datasets\set_train_data.py
 
