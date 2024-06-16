@@ -1,4 +1,6 @@
-# AICUP Baseline: BoT-SORT
+# Cross-camera_Multi-object_Vehicle_Tracking 
+
+此專案使用該競賽的資料集：https://tbrain.trendmicro.com.tw/Competitions/Details/32
 
 ## Installation
 
